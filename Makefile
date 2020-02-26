@@ -1,6 +1,6 @@
 .PHONY: build install clean
 
-BINARY := "tdiff"
+BINARY := "taildiff"
 
 build:
 	go build -o $(BINARY)
