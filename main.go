@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"path"
 	"strings"
 	"time"
 )
@@ -16,11 +17,19 @@ const (
 
 var CommandWatcher = &watcher{}
 
+var ProgramName = path.Base(os.Args[0])
+
 func init() {
 	flag.ErrHelp = fmt.Errorf("flag error")
 	flag.StringVar(&CommandWatcher.command, "c", "", "[required] shell command")
 	flag.DurationVar(&CommandWatcher.interval, "n", time.Second, "update interval")
 	flag.BoolVar(&CommandWatcher.exitOnErr, "e", false, "exit on command error (default false)")
+
+	origUsage := flag.Usage
+	flag.Usage = func() {
+		fmt.Printf("%s monitors changes of a supplied shell command's output.\n\n", ProgramName)
+		origUsage()
+	}
 }
 
 func main() {
