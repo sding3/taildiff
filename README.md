@@ -40,6 +40,8 @@ taildiff -c 'netstat -tupn' -time-stamp
 
 ### Compile from source
 
+First download and install [go](https://golang.org/doc/install) if you don't have it, then perform the following.
+
 ```
 git clone https://github.com/sding3/taildiff.git
 cd taildiff
