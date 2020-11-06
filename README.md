@@ -23,7 +23,7 @@ Usage of ./taildiff:
   -n duration
     	update interval (default 1s)
   -no-newline
-    	inhibit the newline character after each output
+    	don't print the extra newline character after each output
   -time-stamp
     	prefix timstamp to each output line
 ```

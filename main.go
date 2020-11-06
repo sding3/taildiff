@@ -24,7 +24,7 @@ func init() {
 	flag.StringVar(&CommandWatcher.command, "c", "", "[required] shell command")
 	flag.DurationVar(&CommandWatcher.interval, "n", time.Second, "update interval")
 	flag.BoolVar(&CommandWatcher.exitOnErr, "e", false, "exit on command error")
-	flag.BoolVar(&CommandWatcher.noNewLine, "no-newline", false, "inhibit the newline character after each output")
+	flag.BoolVar(&CommandWatcher.noNewLine, "no-newline", false, "don't print the extra newline character after each output")
 	flag.BoolVar(&CommandWatcher.withTimestamp, "time-stamp", false, "prefix timstamp to each output line")
 
 	origUsage := flag.Usage
