@@ -10,27 +10,33 @@ taildiff lets you monitor/record the changes of a shell command.
 
 `-c '<command>'` supplies the shell command, e.g. `-c 'grep processes /proc/stat'`.
 
-`-n <duration>` is optional. It supplies update interval, e.g. `-n 0.3s`. Default is 1s.
-
 Other options are available too:
 
 ```
 $ taildiff -h
-Usage of taildiff:
+taildiff monitors changes of a supplied shell command's stdout.
+
+Usage of ./taildiff:
   -c string
-        [required] shell command
-  -e    exit on command error. (default false)
+    	[required] shell command
+  -e	exit on command error
   -n duration
-        update interval (default 1s)
+    	update interval (default 1s)
+  -no-newline
+    	inhibit the newline character after each output
+  -time-stamp
+    	prefix timstamp to each output line
+```
+
+Examples:
+
+```
+taildiff -c 'grep processes /proc/stat' -no-newline -time-stamp
+taildiff -c 'grep processes /proc/stat'
+taildiff -c 'netstat -tupn' -time-stamp
 ```
 
 ## Installation
-
-### go get
-
-```
-go get github.com/sding3/taildifff
-```
 
 ### Compile from source
 
